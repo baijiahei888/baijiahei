@@ -88,11 +88,11 @@
           <span>当前矿机数量</span> </li>
       </ul>
     </div>
-    <!-- <div class="panel bgc-white">
-      <h2>更多玩客云技术讨论、交易请加QQ群<span class="fc-red">683483386</span>&nbsp;&nbsp;
-        <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=300caa9430b06590a9e58bae0d3ee89a7db34953f7e7faf2e2b62196753e67b2"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="玩客币交流切磋群" title="玩客币交流切磋群" style="display:inline"></a>
+    <div class="panel bgc-white">
+      <h2>更多玩客云/链克/暴风技术讨论、交易请加QQ群<span class="fc-red">523683643</span>&nbsp;&nbsp;
+        <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=59r1KdS"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="玩客币交流切磋群" title="玩客云/链克/暴风交流" style="display:inline"></a>
       </h2>
-    </div> -->
+    </div>
 </section>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
