@@ -19,6 +19,9 @@
 
 <section class="container">
     <div class="panel bgc-white">
+        <img style="margin: 0 auto" src="images/alipay.png" height="300px" width="300px">
+    </div>
+    <div class="panel bgc-white">
         <h2>链克(玩客币)交易实时行情
         <span class="fs-12 fc-gray">{{date("Y-m-d H:i:s")}}</span>
         <span class="fs-12 fc-red ml-10" id="mes">倒计时30秒刷新</span>
@@ -69,7 +72,7 @@
                 <dd ><span class="down-text">--100%</span></dd>       -->
       </dl>
     </div>
-    
+
     <div class="panel bgc-white">
       <h2>链克(玩客币)昨日矿场情况 <span class="fs-12 fc-gray">{{$wkcMine->updated_at}}</span></h2>
       <ul class="yesterday">
