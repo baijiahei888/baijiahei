@@ -20,8 +20,8 @@
 <section class="container">
     <div class="panel bgc-white">
         <h2>链克(玩客币)交易实时行情
-        <span class="fs-12 fc-gray">{{date("Y-m-d")}}</span>
-        <span class="fs-12 fc-red ml-10" id="mes">倒计时0秒刷新</span>
+        <span class="fs-12 fc-gray">{{date("Y-m-d H:i:s")}}</span>
+        <span class="fs-12 fc-red ml-10" id="mes">倒计时30秒刷新</span>
         </h2>
 
         <dl class="hq-dl clearfix">
