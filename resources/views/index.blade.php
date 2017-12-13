@@ -31,8 +31,13 @@
                 <dd>日涨幅</dd>
 
             @foreach($info->result as $key => $value)
-                @if (!strstr($value->dict->name,"虫洞",0)) 
-                    <dt>{{$value->dict->name}}</dt>
+                @if (!strstr($value->dict->name,"虫洞",0))
+                    @if ($value->dict->name == '悠雨林')
+                        <dt><a target="_blank" href="http://www.uyulin.com/?invit=MC916519" rel="nofollow">{{$value->dict->name}}</a></dt>
+                    @else
+                        <dt>{{$value->dict->name}}</dt>
+                    @endif
+
                     @if (!strstr($value->change,"-"))
                         <dd ><span class="up-text">¥{{number_format($value->cnyPrice,2)}}▲</span></dd>
                     @else
