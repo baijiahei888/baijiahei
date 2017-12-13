@@ -98,18 +98,12 @@
         <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=59r1KdS"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="玩客币交流切磋群" title="玩客云/链克/暴风交流" style="display:inline"></a>
       </h2>
     </div>
+    <div style="text-align: center;">
+        <script src="https://s13.cnzz.com/z_stat.php?id=1271333081&web_id=1271333081" language="JavaScript"></script>
+    </div>
+
 </section>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?0e399e93b08c938075982aa7df01603c";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
 <script>  
     function myrefresh() {  
         window.location.reload();  
