@@ -13,15 +13,6 @@
 <link href="css/tfui.common.css" rel="stylesheet" type="text/css">
 <link href="css/calc.css" rel="stylesheet" type="text/css">
 <script src="js/flexible.js?v=1.0.0"></script>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?0e399e93b08c938075982aa7df01603c";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 </head>
 
 <body class="flexview">
@@ -104,6 +95,15 @@ var _hmt = _hmt || [];
     </div>
 </section>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0e399e93b08c938075982aa7df01603c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
 <script>  
     function myrefresh() {  
