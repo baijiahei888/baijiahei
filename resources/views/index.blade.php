@@ -19,7 +19,7 @@
 
 <section class="container">
     <div class="panel bgc-white">
-        <img style="margin: 0 auto" src="images/alipay.png" height="300px" width="300px">
+        <img style="margin: 0 auto" src="images/alipay.png" height="300px" width="300px"> 
     </div>
     <div class="panel bgc-white">
         <h2>链克(玩客币)交易实时行情
