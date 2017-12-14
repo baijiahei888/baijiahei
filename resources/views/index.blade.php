@@ -110,12 +110,13 @@
 <script>  
     function myrefresh() {  
         getData();
-    }  
+        setTimeout('myrefresh()', 30000); //指定1秒刷新一次  
+        times();
+    }
     var time;  
-  
     time = getNowFormatDate();  
-  
     $("#time").html(time);  
+
     function getNowFormatDate() {  
         var date = new Date();  
         var seperator1 = "-";  
@@ -135,19 +136,24 @@
     }  
   
     setTimeout('myrefresh()', 30000); //指定1秒刷新一次  
-  
+    times();
     //还有几秒；  
-  
-    var i = 30;  
-    var intervalid;  
-    intervalid = setInterval("fun()", 1000);  
-    function fun() {  
-        if (i == 0) {  
-            clearInterval(intervalid);  
-        }  
-        document.getElementById("mes").innerHTML = '倒计时' + i + "秒刷新";  
-        i--;  
-    }  
+    function times() {
+            document.getElementById("mes").innerHTML = "倒计时30秒刷新";  
+            var i = 30;  
+            var intervalid;  
+            window.setInterval(function () {
+                function fun() {  
+                    if (i == 0) {  
+                        i=30; 
+                    }  
+                    document.getElementById("mes").innerHTML = '倒计时' + i + "秒刷新";  
+                    i--;  
+                };
+                fun();
+            },1000);
+        //intervalid = setInterval("fun()", 1000);  
+    }
   
 </script>  
 
