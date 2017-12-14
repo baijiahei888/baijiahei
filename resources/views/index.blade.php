@@ -109,7 +109,7 @@
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>  
     function myrefresh() {  
-        window.location.reload();  
+        getData();
     }  
     var time;  
   
@@ -150,6 +150,34 @@
     }  
   
 </script>  
+
+
+<script type="text/javascript">
+    function getData() {
+        $.get("api/wkcdata",function(data,status){
+            //alert("Data: " + data.code + "\nStatus: "+ status)
+            for (var i = 0; i < data.result.length; i++) {
+                if ( data.result[i].dict.name.match("虫洞") == null ){
+                    $("dt").eq(i+1).text(data.result[i].dict.name); //name
+                    if (data.result[i].change > 0 ){
+                        $("dd span").eq(i*2).text("¥"+data.result[i].cnyPrice+"▲"); // buy
+                    } else if (data.result[i].change == 0 ) { 
+                        $("dd span").eq(i*2).text("¥"+data.result[i].cnyPrice); // buy
+                    } else{
+                        $("dd span").eq(i*2).text("¥"+data.result[i].cnyPrice+"▼"); // buy
+                    }
+                    $("dd").eq((i+1)*3+1).text(data.result[i].turnover); // 
+                    if (data.result[i].change > 0 ){
+                        $("dd span").eq(i*2+1).text("+"+data.result[i].change +"%"); // 
+                    } else {
+                        $("dd span").eq(i*2+1).text(data.result[i].change +"%"); // 
+                    }
+                }
+            };
+        })
+    }
+</script>
+
 
 </body>
 </html>
