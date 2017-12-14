@@ -18,9 +18,9 @@
 <body class="flexview">
 
 <section class="container">
-    <div class="panel bgc-white">
+<!--     <div class="panel bgc-white">
         <img style="margin: 0 auto" src="img/alipay.png" height="300px" width="300px"> 
-    </div>
+    </div> -->
     <div class="panel bgc-white">
         <h2>链克(玩客币)交易实时行情
         <span class="fs-12 fc-gray">{{date("Y-m-d H:i:s")}}</span>
