@@ -13,3 +13,7 @@
 
 Route::get('/','InfoController@index');
 
+
+Auth::routes();
+
+Route::get('/user', 'UserController@index');

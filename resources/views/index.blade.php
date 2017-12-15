@@ -1,112 +1,110 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-<meta name="apple-mobile-web-app-title" content="手触屏版">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="format-detection" content="telephone=no">
-<title>玩客云行情,链克行情/链克行情查看</title>
-<meta name="keywords" content="玩客币,玩客币行情,链克,链克口袋,链克行情">
-<meta name="description" content="玩客云,链克口袋行情查看网">
-<link href="css/tfui.common.css" rel="stylesheet" type="text/css">
-<link href="css/calc.css" rel="stylesheet" type="text/css">
-<script src="js/flexible.js?v=1.0.0"></script>
-</head>
+@extends('layouts.app')
+@section('title',"this is title")
+@section('keywords',"keywords")
+@section('description',"description")
 
-<body class="flexview">
+@section('content')
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">链克(玩客币)交易实时行情</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>交易平台</th>
+                    <th>最新成交价</th>
+                    <th>成交量</th>
+                    <th>日涨幅</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($info->result as $key => $value)
+                    @if (!strstr($value->dict->name,"虫洞",0))
+                        @if ($value->change >= 0)
+                            <tr class="success">
+                        @elseif($value->change < 0)
+                            <tr class="danger">
+                        @else
+                            <tr>
+                        @endif
+                                <!-- name -->
+                                @if ($value->dict->name == '悠雨林')
+                                    <td><a target="_blank" href="http://www.uyulin.com/?invit=MC916519" rel="nofollow">{{$value->dict->name}}</a></td>
+                                @else
+                                    <td>{{$value->dict->name}}</td>
+                                @endif
 
-<section class="container">
-<!--     <div class="panel bgc-white">
-        <img style="margin: 0 auto" src="img/alipay.png" height="300px" width="300px"> 
-    </div> -->
-    <div class="panel bgc-white">
-        <h2>链克(玩客币)交易实时行情
-        <span class="fs-12 fc-gray">{{date("Y-m-d H:i:s")}}</span>
-        <span class="fs-12 fc-red ml-10" id="mes">倒计时30秒刷新</span>
-        </h2>
+                                <!-- cntPrice -->
+                                @if (!strstr($value->change,"-"))
+                                    <td>¥{{number_format($value->cnyPrice,2)}}▲</td>
+                                @else
+                                    <td>¥{{number_format($value->cnyPrice,2)}}▼</td>
+                                @endif
 
-        <dl class="hq-dl clearfix">
-            <dt>交易平台</dt>
-                <dd>最新成交价</dd>
-                <dd>成交量</dd>
-                <dd>日涨幅</dd>
+                                <!-- count -->
+                                <td>{{round($value->turnover,2)}}</td>
 
-            @foreach($info->result as $key => $value)
-                @if (!strstr($value->dict->name,"虫洞",0))
-                    @if ($value->dict->name == '悠雨林')
-                        <dt><a target="_blank" href="http://www.uyulin.com/?invit=MC916519" rel="nofollow">{{$value->dict->name}}</a></dt>
-                    @else
-                        <dt>{{$value->dict->name}}</dt>
+                                <!-- change -->
+                                @if (!strstr($value->change,"-"))
+                                    <td>+{{round($value->change,2)}}%</td>
+                                @else
+                                    <td>{{round($value->change,2)}}%</td>
+                                @endif
+
+                            </tr>
                     @endif
-
-                    @if (!strstr($value->change,"-"))
-                        <dd ><span class="up-text">¥{{number_format($value->cnyPrice,2)}}▲</span></dd>
-                    @else
-                        <dd ><span class="down-text">¥{{number_format($value->cnyPrice,2)}}▼</span></dd>
-                    @endif
-                    <dd >{{round($value->turnover,2)}}</dd>
-                    @if (!strstr($value->change,"-"))
-                        <dd><span class="up-text">+{{round($value->change,2)}}%</span></dd>
-                    @else
-                        <dd><span class="down-text">{{round($value->change,2)}}%</span></dd>
-                    @endif
-                @endif
-            @endforeach
-<!--             <dt class="line-bg" >cex-eth</dt>
-                <dd class="line-bg"><span class="up-text">¥9.02▲</span></dd>
-                <dd class="line-bg">94169</dd>
-                <dd class="line-bg"><span class="up-text">+9.93%</span></dd>
-
-            <dt >零肆叁贰</dt>
-                <dd ><span class="up-text">¥9▲</span></dd>
-                <dd >73510</dd><dd><span class="down-text">--</span></dd>
-
-            <dt class="line-bg" >随求</dt>
-                <dd class="line-bg"><span class="up-text">¥9.17▲</span></dd>
-                <dd class="line-bg">14219.0908</dd><dd  class="line-bg" ><span class="up-text">+5.7%</span></dd>
-
-            <dt>玩客币社区</dt><dd><span class="up-text">¥8.35▲</span></dd>
-                <dd >0</dd>
-                <dd ><span class="down-text">--100%</span></dd>       -->
-      </dl>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 
-    <div class="panel bgc-white">
-      <h2>链克(玩客币)昨日矿场情况 <span class="fs-12 fc-gray">{{$wkcMine->updated_at}}</span></h2>
-      <ul class="yesterday">
-        <li>
-          <h4>{{$wkcMine->count}}</h4>
-          <span>挖矿总量</span> </li>
-        <li>
-          <h4>{{$wkcMine->height}}</h4>
-          <span>区块高度</span> </li>
-        <li>
-          <h4>{{$wkcMine->onlineTime}}小时</h4>
-          <span>人均在线时长</span> </li>
-        <li>
-          <h4>{{$wkcMine->width}}Mbps</h4>
-          <span>人均带宽</span> </li>
-        <li>
-          <h4>{{$wkcMine->disk}}GB</h4>
-          <span>人均存储</span> </li>
-          <li>
-          <h4>387856</h4>
-          <span>当前矿机数量</span> </li>
-      </ul>
+
+    <div class="panel panel-default">
+    <div class="panel-heading">链克(玩客币)昨日矿场详情</div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>挖矿总量</th>
+                    <th>区块高度</th>
+                    <th>人均在线时长</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="info">
+                    <td>{{$wkcMine->count}}</td>
+                    <td>{{$wkcMine->height}}</td>
+                    <td>{{$wkcMine->onlineTime}}小时</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>人均带宽</th>
+                    <th>人均存储</th>
+                    <th>当前矿机数量</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="info">
+                    <td>{{$wkcMine->width}}Mbps</td>
+                    <td>{{$wkcMine->disk}}GB</td>
+                    <td>393456</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="panel bgc-white">
-      <h2>更多玩客云/链克/暴风技术讨论、交易请加QQ群<span class="fc-red">523683643</span>&nbsp;&nbsp;
+
+     <p class="well text-center">更多玩客云/链克/暴风技术讨论、交易请加QQ群<span class="fc-red">523683643</span>&nbsp;&nbsp;
         <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=59r1KdS"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="玩客币交流切磋群" title="玩客云/链克/暴风交流" style="display:inline"></a>
-      </h2>
-    </div>
-    <div style="text-align: center;">
-        <script src="https://s13.cnzz.com/z_stat.php?id=1271333081&web_id=1271333081" language="JavaScript"></script>
-    </div>
+      </p>
+</div>
 
-</section>
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--     <div style="text-align: center;">
+        <script src="https://s13.cnzz.com/z_stat.php?id=1271333081&web_id=1271333081" language="JavaScript"></script>
+    </div> -->
+</div>
+
+
 <script>  
     function myrefresh() {  
         getData();
@@ -115,7 +113,7 @@
     }
     var time;  
     time = getNowFormatDate();  
-    $("#time").html(time);  
+    // $("#time").html(time);  
 
     function getNowFormatDate() {  
         var date = new Date();  
@@ -183,7 +181,4 @@
         })
     }
 </script>
-
-
-</body>
-</html>
+@endsection
