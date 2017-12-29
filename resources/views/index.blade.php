@@ -105,80 +105,10 @@
 </div>
 
 
-<script>  
-    function myrefresh() {  
-        getData();
-        setTimeout('myrefresh()', 30000); //指定1秒刷新一次  
-        times();
-    }
-    var time;  
-    time = getNowFormatDate();  
-    // $("#time").html(time);  
-
-    function getNowFormatDate() {  
-        var date = new Date();  
-        var seperator1 = "-";  
-        var seperator2 = ":";  
-        var month = date.getMonth() + 1;  
-        var strDate = date.getDate();  
-        if (month >= 1 && month <= 9) {  
-            month = "0" + month;  
-        }  
-        if (strDate >= 0 && strDate <= 9) {  
-            strDate = "0" + strDate;  
-        }  
-        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate  
-            + " " + date.getHours() + seperator2 + date.getMinutes()  
-            + seperator2 + date.getSeconds();  
-        return currentdate;  
-    }  
-  
-    setTimeout('myrefresh()', 30000); //指定1秒刷新一次  
-    times();
-    //还有几秒；  
-    function times() {
-            document.getElementById("mes").innerHTML = "倒计时30秒刷新";  
-            var i = 30;  
-            var intervalid;  
-            window.setInterval(function () {
-                function fun() {  
-                    if (i == 0) {  
-                        i=30; 
-                    }  
-                    document.getElementById("mes").innerHTML = '倒计时' + i + "秒刷新";  
-                    i--;  
-                };
-                fun();
-            },1000);
-        //intervalid = setInterval("fun()", 1000);  
-    }
-  
-</script>  
-
-
 <script type="text/javascript">
-    function getData() {
-        $.get("api/wkcdata",function(data,status){
-            //alert("Data: " + data.code + "\nStatus: "+ status)
-            for (var i = 0; i < data.result.length; i++) {
-                if ( data.result[i].dict.name.match("虫洞") == null ){
-                    $("dt").eq(i+1).text(data.result[i].dict.name); //name
-                    if (data.result[i].change > 0 ){
-                        $("dd span").eq(i*2).text("¥"+data.result[i].cnyPrice+"▲"); // buy
-                    } else if (data.result[i].change == 0 ) { 
-                        $("dd span").eq(i*2).text("¥"+data.result[i].cnyPrice); // buy
-                    } else{
-                        $("dd span").eq(i*2).text("¥"+data.result[i].cnyPrice+"▼"); // buy
-                    }
-                    $("dd").eq((i+1)*3+1).text(data.result[i].turnover); // 
-                    if (data.result[i].change > 0 ){
-                        $("dd span").eq(i*2+1).text("+"+data.result[i].change +"%"); // 
-                    } else {
-                        $("dd span").eq(i*2+1).text(data.result[i].change +"%"); // 
-                    }
-                }
-            };
-        })
-    }
+    document.title ="30S自动刷新网页 - www.liankeyun.org";
+    setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+    window.location.reload();//页面刷新
+},30000);
 </script>
 @endsection

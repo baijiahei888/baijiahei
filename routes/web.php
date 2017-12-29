@@ -16,4 +16,5 @@ Route::get('/','InfoController@index');
 
 Auth::routes();
 
-Route::get('/user', 'UserController@index');
+Route::get('/user', 'UserController@index')->middleware('auth');
+Route::get('/admin', 'AdminController@index')->middleware('auth');

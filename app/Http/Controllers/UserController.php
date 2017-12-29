@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 class UserController extends Controller
 {
     /**
@@ -18,7 +18,14 @@ class UserController extends Controller
 
 	public function index()
     {
-    	return view("user");
+        // $user = Auth::user();
+        $userId = Auth::id();
+        if ($userId == 1 )
+        {
+            return redirect("admin");
+        } else {
+            return view("user");
+        }
     }
 
 }
